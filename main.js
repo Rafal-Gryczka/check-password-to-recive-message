@@ -3,20 +3,17 @@ const div = document.querySelector('div');
 const passwords = ['oNe', 'TwO'];
 const messages = ["super", "great!"]
 
-passwords.forEach((password, i) => {
-    passwords[i] = password.toLowerCase();
-})
-
+const LCPasswords = passwords.map(password => password.toLowerCase());
 
 const showMessage = (e) => {
-    div.textContent = '';
-    const text = e.target.value.toLowerCase();
-    passwords.forEach((password, index) => {
-        if (password === text) {
-            div.textContent = messages[index];
+    const textInput = e.target.value.toLowerCase();
+    div.textContent = "";
+    for (let i = 0; i < LCPasswords.length; i++) {
+        if (textInput === LCPasswords[i]) {
+            div.textContent = messages[i];
             e.target.value = '';
         }
-    })
+    }
 
 }
 
