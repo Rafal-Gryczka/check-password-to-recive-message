@@ -3,11 +3,16 @@ const div = document.querySelector('div');
 const passwords = ['oNe', 'TwO'];
 const messages = ["super", "great!"]
 
+passwords.forEach((password, i) => {
+    passwords[i] = password.toLowerCase();
+})
+
+
 const showMessage = (e) => {
     div.textContent = '';
-    const text = e.target.value;
+    const text = e.target.value.toLowerCase();
     passwords.forEach((password, index) => {
-        if (password.toUpperCase() === text.toUpperCase()) {
+        if (password === text) {
             div.textContent = messages[index];
             e.target.value = '';
         }
